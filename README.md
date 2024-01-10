@@ -13,7 +13,7 @@ db = Database(DatabaseConfig(
     token="<token>"
 ))
 
-objectIDs = (
+object_ids = (
     db.query()
         .from_collection('users')
         .limit(1)
@@ -24,7 +24,7 @@ objectIDs = (
 results = (
     db.query()
         .from_collection('users')
-        .where('_fk', 'in', objectIDs)
+        .where('_fk', 'in', object_ids)
         .has_many('tasks', lambda q: q.where('user_id', '=', '$._id').order_by('created_at', 'asc'))
         .fetch()
 )
