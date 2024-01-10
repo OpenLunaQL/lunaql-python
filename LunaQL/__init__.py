@@ -1,0 +1,6 @@
+__title__ = "LunaQL"
+__version__ = "1.0.0"
+__api_version__ = "1"
+__author__ = "Donald Pakkies"
+__license__ = "MIT"
+__copyright__ = "2023 LunaQL, Inc"
