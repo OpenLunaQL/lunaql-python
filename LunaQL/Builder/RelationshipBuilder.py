@@ -1,6 +1,9 @@
-from typing import List
-from typing import Callable
+from __future__ import annotations
+from typing import Callable, List
 from ..Config.RelationshipConfig import RelationshipConfig
+
+if False:
+    from .RelationshipBuilder import RelationshipBuilder
 
 class RelationshipBuilder:
     def __init__(self, config: RelationshipConfig):
@@ -80,12 +83,10 @@ class RelationshipBuilder:
 
         return self.__update_query('skip', skip)
 
-    def has_many(self, collection: str, callback: Callable):
+    def has_many(self, collection: str, callback: Callable[[RelationshipBuilder], RelationshipBuilder]):
         """
         Join collection to another collection.
         """
-
-        # Callable[[RelationshipBuilder]]
 
         builder = RelationshipBuilder(RelationshipConfig(
             collection=collection,
@@ -101,12 +102,10 @@ class RelationshipBuilder:
 
         return self
 
-    def belongs_to(self, collection: str, callback: Callable):
+    def belongs_to(self, collection: str, callback: Callable[[RelationshipBuilder], RelationshipBuilder]):
         """
         Join collection to another collection.
         """
-
-        # Callable[[RelationshipBuilder]]
 
         builder = RelationshipBuilder(RelationshipConfig(
             collection=collection,
