@@ -40,7 +40,7 @@ class Database:
             }
         ))
 
-    def insertMany(self, data: Dict, options: Dict = {}):
+    def insert_many(self, data: Dict, options: Dict = {}):
         """
         Insert new documents.
         """
